@@ -1,6 +1,6 @@
-package vn.menogo.server.Service;
+package vn.menugo.server.Service;
 
-import vn.menogo.server.model.Provider;
+import vn.menugo.server.model.Provider;
 
 import java.util.List;
 import java.util.UUID;
@@ -11,8 +11,7 @@ import java.util.UUID;
 public interface ProviderCrudService {
     void create(Provider newEntry);
     Provider delete(UUID uuid);
+    Provider update(Provider newEntry);
     List<Provider> findAll();
     Provider findByUuid(UUID uuid);
-    Provider update(Provider newEntry);
-
 }

@@ -1,4 +1,4 @@
-package vn.menogo.server.model;
+package vn.menugo.server.model;
 
 /**
  * Created by itn0309 on 6/13/2017.

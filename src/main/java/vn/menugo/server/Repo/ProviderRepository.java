@@ -1,8 +1,7 @@
-package vn.menogo.server.Repo;
+package vn.menugo.server.Repo;
 
 import org.springframework.data.repository.Repository;
-import org.springframework.data.repository.query.Param;
-import vn.menogo.server.model.Provider;
+import vn.menugo.server.model.Provider;
 
 import java.util.List;
 import java.util.UUID;

@@ -1,5 +1,6 @@
-package vn.menogo.server.model;
+package vn.menugo.server.model;
 
+import com.fasterxml.jackson.annotation.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -9,8 +10,11 @@ import java.util.UUID;
  * Created by itn0309 on 5/29/2017.
  */
 @Entity
-@Table(name = "Menu")
-public class Menu {
+@Table(name = "MenuItem")
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "uuid")
+public class MenuItem {
 
     @Id
     @GenericGenerator(name = "hibernate-uuid", strategy = "hibernate-uuid")
@@ -25,16 +29,33 @@ public class Menu {
     private String note;
 
     @ManyToOne
+    //@JsonManagedReference(value = "provider")
+    //@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Provider provider;
 
-    public Menu(){}
+    @ManyToOne
+    //@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    //@JsonManagedReference(value = "category")
+    private Category category;
 
-    public Menu(UUID uuid, String name, long price, String description, String note) {
+    public MenuItem(UUID uuid, String name, long price, String description, String note) {
         this.uuid = uuid;
         this.name = name;
         this.price = price;
         this.description = description;
         this.note = note;
+    }
+
+    public MenuItem(){}
+
+    public MenuItem(UUID uuid, String name, long price, String description, String note, Provider provider, Category category) {
+        this.uuid = uuid;
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        this.note = note;
+        this.provider = provider;
+        this.category = category;
     }
 
     public UUID getUuid() {
@@ -83,5 +104,13 @@ public class Menu {
 
     public void setProvider(Provider provider) {
         this.provider = provider;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

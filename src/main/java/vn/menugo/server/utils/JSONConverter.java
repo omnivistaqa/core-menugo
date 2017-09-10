@@ -1,4 +1,4 @@
-package vn.menogo.server.utils;
+package vn.menugo.server.utils;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;

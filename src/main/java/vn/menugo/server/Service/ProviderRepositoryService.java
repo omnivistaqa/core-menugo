@@ -1,11 +1,9 @@
-package vn.menogo.server.Service;
+package vn.menugo.server.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.Repository;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
-import vn.menogo.server.Repo.ProviderRepository;
-import vn.menogo.server.model.Provider;
+import vn.menugo.server.Repo.ProviderRepository;
+import vn.menugo.server.model.Provider;
 
 import java.util.List;
 import java.util.UUID;
@@ -42,7 +40,7 @@ public class ProviderRepositoryService implements ProviderCrudService {
 
     @Override
     public Provider findByUuid(UUID uuid) {
-        return null;
+        return repository.findByUuid(uuid);
     }
 
     public List<Provider> findByName(String name){
@@ -51,6 +49,6 @@ public class ProviderRepositoryService implements ProviderCrudService {
 
     @Override
     public Provider update(Provider newEntry) {
-        return null;
+        return repository.save(newEntry);
     }
 }

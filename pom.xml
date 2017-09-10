@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>vn.menogo</groupId>
-	<artifactId>core-menugo</artifactId>
+	<artifactId>core-MenuListgo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>core-menugo</name>
-	<description>Menugo Core Rest </description>
+	<name>core-MenuListgo</name>
+	<description>MenuListgo Core Rest </description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -74,6 +74,12 @@
 			<groupId>com.googlecode.json-simple</groupId>
 			<artifactId>json-simple</artifactId>
 			<version>1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>1.1.0</version>
 		</dependency>
 
 	</dependencies>

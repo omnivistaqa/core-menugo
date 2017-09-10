@@ -1,6 +1,4 @@
-package vn.menogo.server.model;
-
-import java.util.List;
+package vn.menugo.server.model;
 
 /**
  * Created by itn0309 on 6/28/2017.
