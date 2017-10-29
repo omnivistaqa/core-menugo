@@ -31,27 +31,18 @@ public class Bill {
 
     @ManyToOne
     private User user;
-/*
-    private List<String> test;
 
-    public List<String> getTest() {
-        return test;
+    @OneToMany(cascade=CascadeType.ALL,mappedBy = "bmiId.bill")
+    //@ManytoMany
+    //@JoinTable(name = "bill_item", joinColumns = @JoinColumn(name = "billID"), inverseJoinColumns = @JoinColumn(name = "ItemID"))
+    private List<BillMenuItem> billMenuItem = new ArrayList<>();
+
+    public List<BillMenuItem> getBillMenuItem() {
+        return billMenuItem;
     }
 
-    public void setTest(List<String> test) {
-        this.test = test;
-    }
-*/
-    @ManyToMany(cascade = CascadeType.PERSIST)
-    @JoinTable(name = "bill_item", joinColumns = @JoinColumn(name = "billID"), inverseJoinColumns = @JoinColumn(name = "ItemID"))
-    private List<MenuItem> listItem;
-
-    public List<MenuItem> getListItem() {
-        return listItem;
-    }
-
-    public void setListItem(List<MenuItem> listItem) {
-        this.listItem = listItem;
+    public void setBillMenuItem(List<BillMenuItem> billMenuItem) {
+        this.billMenuItem = billMenuItem;
     }
 
     public Bill(UUID uuid, String type) {

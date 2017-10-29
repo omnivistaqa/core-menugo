@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -37,6 +38,9 @@ public class MenuItem {
     //@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     //@JsonManagedReference(value = "category")
     private Category category;
+
+    @OneToMany( cascade=CascadeType.ALL ,mappedBy = "bmiId.menuItem")
+    private List<BillMenuItem> billMenuItem;
 
     public MenuItem(UUID uuid, String name, long price, String description, String note) {
         this.uuid = uuid;
@@ -112,5 +116,13 @@ public class MenuItem {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public List<BillMenuItem> getBillMenuItem() {
+        return billMenuItem;
+    }
+
+    public void setBillMenuItem(List<BillMenuItem> billMenuItem) {
+        this.billMenuItem = billMenuItem;
     }
 }
